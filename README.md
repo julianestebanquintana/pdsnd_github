@@ -8,8 +8,9 @@ Bikeshare.py : interactive explorer for three cities bikeshare data.
 Describe what your project is about and what it does
 
 ### Files used
-Include the files used
+bikeshare.py : is the executable code.
+chicago.csv, new_york_city.csv, washington.csv : the data to be reviewed for the data analisys.
 
 ### Credits
-It's important to give proper credit. Add links to any repo that inspired you or blogposts you consulted.
+Developed by Julian Esteban Quintana, from Medellin, Colombia, in 2020, amid the lockdown, for the Udacity's Programming for Data Science Nanodegree.
 
