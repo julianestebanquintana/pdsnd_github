@@ -7,7 +7,7 @@ from scipy import stats
 
 CITY_DATA = { 'chicago': 'chicago.csv',
               'new york city': 'new_york_city.csv',
-              'washington': 'washington.csv' }
+              'washington': 'washington.csv'}
 
 city_mssg = """
 What city do you want to analyze?\n
@@ -18,7 +18,7 @@ Your input must be an integer. Choices are:
 """
 
 month_mssg = """
-What month do you want to review?\n 
+What month do you want to review?\n
 Your input must be an integer. Choices are:
 1. January
 2. February
@@ -49,43 +49,44 @@ Your input must be an integer. Choices are:
 """
 
 error_mssg = """
-Not a valid input. 
+Not a valid input.
 If you want to go out, press Ctrl + C.
 Lets start again.
 """
 
 city_dict = {
-                1:'Chicago',
-                2:'New York City',
-                3:'Washington',
+                1: 'Chicago',
+                2: 'New York City',
+                3: 'Washington',
              }
 
 month_dict = {
-                1:'January',
-                2:'February',
-                3:'March',
-                4:'April',
-                5:'May',
-                6:'June',
-                7:'July',
-                8:'August',
-                9:'September',
-                10:'October',
-                11:'November',
-                12:'December',
-                13:'All'
+                1: 'January',
+                2: 'February',
+                3: 'March',
+                4: 'April',
+                5: 'May',
+                6: 'June',
+                7: 'July',
+                8: 'August',
+                9: 'September',
+                10: 'October',
+                11: 'November',
+                12: 'December',
+                13: 'All'
              }
 
 day_dict = {
-                1:'Sunday',
-                2:'Monday',
-                3:'Tuesday',
-                4:'Wednesday',
-                5:'Thursday',
-                6:'Friday',
-                7:'Saturday',
-                8:'All'
+                1: 'Sunday',
+                2: 'Monday',
+                3: 'Tuesday',
+                4: 'Wednesday',
+                5: 'Thursday',
+                6: 'Friday',
+                7: 'Saturday',
+                8: 'All'
              }
+
 
 def get_filters(city_mssg, month_mssg, day_mssg, error_mssg):
     """
@@ -97,13 +98,14 @@ def get_filters(city_mssg, month_mssg, day_mssg, error_mssg):
         (str) day - name of the day of week to filter by, or "all" to apply no day filter
     """
     print('Hello! Let\'s explore some US bikeshare data!')
-    city_mssg, month_mssg, day_mssg, error_mssg = city_mssg, month_mssg, day_mssg,error_mssg
-    
-    # get user input for city (chicago, new york city, washington). HINT: Use a while loop to handle invalid inputs
+    city_mssg, month_mssg, day_mssg, error_mssg = city_mssg, month_mssg, day_mssg, error_mssg
+
+    # get user input for city (chicago, new york city, washington). HINT: Use a
+    # while loop to handle invalid inputs
     def get_city():
         city = input(city_mssg)
         return city
-    
+
     # get user input for month (all, january, february, ... , june)
     def get_month():
         month = input(month_mssg)
@@ -112,7 +114,7 @@ def get_filters(city_mssg, month_mssg, day_mssg, error_mssg):
     # get user input for day of week (all, monday, tuesday, ... sunday)
     def get_day():
         day = input(day_mssg)
-        return day  
+        return day
 
     while True:
         try:
@@ -165,31 +167,31 @@ def load_data(city, month, day):
     # Loading CSV file into DataFrame 'df'
     file_name = CITY_DATA[city] 
     df = pd.read_csv(file_name) 
-    
+
     # Converting string dates to datetime.
     df['Start Time'] = pd.to_datetime(df['Start Time'])
     df['End Time'] = pd.to_datetime(df['End Time'])
-    
+
     # Filtering the 'df' DataFrame by month and day.
     df1 = []
-    if month == 13 and day == 8: #No filtering if month and day are 'all'
+    if month == 13 and day == 8:  # No filtering if month and day are 'all'
         pass
-    elif month == 13: # Filtering for case all months, one weekday selected
+    elif month == 13:  # Filtering for case all months, one weekday selected
         for date in df['Start Time']:
             if date.weekday() + 1 == day:
                 df1.append(True)
             else:
                 df1.append(False)
         df = df.loc[df1]
-    elif day == 8: # Filtering for case one month selected, all days
+    elif day == 8:  # Filtering for case one month selected, all days
         for date in df['Start Time']:
             if date.month == month:
                 df1.append(True)
             else:
                 df1.append(False)
         df = df.loc[df1]
-    else: # Filtering for a specified month and weekday
-        for date in df['Start Time']: 
+    else:  # Filtering for a specified month and weekday
+        for date in df['Start Time']:
             if date.weekday() + 1 == day and date.month == month:
                 df1.append(True)
             else:
@@ -210,7 +212,7 @@ def time_stats(df):
         months.append(date.month)
     month_mode = int(stats.mode(months)[0])
     print('The month with the most registered travels is {}\n'.format(month_dict[month_mode]))
-    
+
     # display the most common day of week
     weekdays = []
     for date in df['Start Time']:
@@ -288,7 +290,7 @@ def user_stats(df):
         print(user_type_count)
     except:
         print('\nNo user types available in the selected data set.')
-    
+
     # Display counts of gender
     try:
         gender_count = df.groupby(['Gender'])['Gender'].count()
@@ -321,9 +323,10 @@ def display_sample(df):
         if another_sample.lower() != 'yes':
             break
 
+
 def main():
     while True:
-        city, month, day = get_filters(city_mssg,month_mssg,day_mssg,error_mssg)
+        city, month, day = get_filters(city_mssg, month_mssg, day_mssg, error_mssg)
         df = load_data(city, month, day)
 
         time_stats(df)
@@ -335,7 +338,7 @@ def main():
         restart = input('\nWould you like to restart? Enter yes or no.\n')
         if restart.lower() != 'yes':
             break
-            
+
 
 if __name__ == "__main__":
-	main()
+    main()
