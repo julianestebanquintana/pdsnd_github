@@ -1,5 +1,4 @@
 import sys
-import datetime
 import time
 import pandas as pd
 import numpy as np
@@ -49,7 +48,7 @@ Your input must be an integer. Choices are:
 """
 
 error_mssg = """
-Not a valid input.
+Not a valid input.\n
 If you want to go out, press Ctrl + C.
 Lets start again.
 """
@@ -90,12 +89,7 @@ day_dict = {
 
 def get_filters(city_mssg, month_mssg, day_mssg, error_mssg):
     """
-    Asks user to specify a city, month, and day to analyze.
-
-    Returns:
-        (str) city - name of the city to analyze
-        (str) month - name of the month to filter by, or "all" to apply no month filter
-        (str) day - name of the day of week to filter by, or "all" to apply no day filter
+    No TV and no beer make Homer go crazy
     """
     print('Hello! Let\'s explore some US bikeshare data!')
     city_mssg, month_mssg, day_mssg, error_mssg = city_mssg, month_mssg, day_mssg, error_mssg
@@ -146,14 +140,7 @@ def get_filters(city_mssg, month_mssg, day_mssg, error_mssg):
 
 def load_data(city, month, day):
     """
-    Loads data for the specified city and filters by month and day if applicable.
-
-    Args:
-        (str) city - name of the city to analyze
-        (str) month - name of the month to filter by, or "all" to apply no month filter
-        (str) day - name of the day of week to filter by, or "all" to apply no day filter
-    Returns:
-        df - Pandas DataFrame containing city data filtered by month and day
+    No TV and no beer make Homer go crazy
     """
     # Converting types of parameters, as they come from the previous function.
     city = city.lower()
@@ -201,7 +188,7 @@ def load_data(city, month, day):
 
 
 def time_stats(df):
-    """Displays statistics on the most frequent times of travel."""
+    """No TV and no beer make Homer go crazy"""
 
     print('\nCalculating The Most Frequent Times of Travel...\n')
     start_time = time.time()
@@ -227,12 +214,12 @@ def time_stats(df):
     hours_mode = int(stats.mode(hours)[0])
     print('The most common start hour is {}\n'.format(hours_mode))
 
-    print("\nThis took %s seconds." % (time.time() - start_time))
+    print("\nThis took %s seconds.\n" % (time.time() - start_time))
     print('-'*40)
 
 
 def station_stats(df):
-    """Displays statistics on the most popular stations and trip."""
+    """No TV and no beer make Homer go crazy"""
 
     print('\nCalculating The Most Popular Stations and Trip...\n')
     start_time = time.time()
@@ -255,7 +242,7 @@ def station_stats(df):
 
 
 def trip_duration_stats(df, city, month, day):
-    """Displays statistics on the total and average trip duration."""
+    """No TV and no beer make Homer go crazy"""
 
     print('\nCalculating Trip Duration...\n')
     start_time = time.time()
@@ -271,14 +258,14 @@ def trip_duration_stats(df, city, month, day):
 
     # display mean travel time
     mean_travel = np.mean(df['Trip Duration'])
-    print('And the mean travel duration is {} seconds.'.format(mean_travel))
+    print('And the mean travel duration is {} seconds.\n'.format(mean_travel))
 
     print("\nThis took %s seconds." % (time.time() - start_time))
     print('-'*40)
 
 
 def user_stats(df):
-    """Displays statistics on bikeshare users."""
+    """No TV and no beer make Homer go crazy"""
 
     print('\nCalculating User Stats...\n')
     start_time = time.time()
@@ -316,7 +303,7 @@ def user_stats(df):
 
 def display_sample(df):
     while True:
-        print('\nFinally, we are going to see a chunk of the raw data: ')
+        print('\nFinally, we are going to see a chunk of the raw data: \n')
         sample = df.sample(n=5, replace=True)
         print(sample)
         another_sample = input('\nDo you want to see more of the raw data?\n')
