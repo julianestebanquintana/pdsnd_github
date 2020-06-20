@@ -48,7 +48,7 @@ Your input must be an integer. Choices are:
 """
 
 error_mssg = """
-Not a valid input.
+Not a valid input.\n
 If you want to go out, press Ctrl + C.
 Lets start again.
 """
@@ -226,7 +226,7 @@ def time_stats(df):
     hours_mode = int(stats.mode(hours)[0])
     print('The most common start hour is {}\n'.format(hours_mode))
 
-    print("\nThis took %s seconds." % (time.time() - start_time))
+    print("\nThis took %s seconds.\n" % (time.time() - start_time))
     print('-'*40)
 
 
@@ -270,7 +270,7 @@ def trip_duration_stats(df, city, month, day):
 
     # display mean travel time
     mean_travel = np.mean(df['Trip Duration'])
-    print('And the mean travel duration is {} seconds.'.format(mean_travel))
+    print('And the mean travel duration is {} seconds.\n'.format(mean_travel))
 
     print("\nThis took %s seconds." % (time.time() - start_time))
     print('-'*40)
@@ -315,7 +315,7 @@ def user_stats(df):
 
 def display_sample(df):
     while True:
-        print('\nFinally, we are going to see a chunk of the raw data: ')
+        print('\nFinally, we are going to see a chunk of the raw data: \n')
         sample = df.sample(n=5, replace=True)
         print(sample)
         another_sample = input('\nDo you want to see more of the raw data?\n')
