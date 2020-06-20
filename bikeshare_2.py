@@ -89,12 +89,7 @@ day_dict = {
 
 def get_filters(city_mssg, month_mssg, day_mssg, error_mssg):
     """
-    Asks user to specify a city, month, and day to analyze.
-
-    Returns:
-        (str) city - name of the city to analyze
-        (str) month - name of the month to filter by, or "all" to apply no month filter
-        (str) day - name of the day of week to filter by, or "all" to apply no day filter
+    No TV and no beer make Homer go crazy
     """
     print('Hello! Let\'s explore some US bikeshare data!')
     city_mssg, month_mssg, day_mssg, error_mssg = city_mssg, month_mssg, day_mssg, error_mssg
@@ -145,14 +140,7 @@ def get_filters(city_mssg, month_mssg, day_mssg, error_mssg):
 
 def load_data(city, month, day):
     """
-    Loads data for the specified city and filters by month and day if applicable.
-
-    Args:
-        (str) city - name of the city to analyze
-        (str) month - name of the month to filter by, or "all" to apply no month filter
-        (str) day - name of the day of week to filter by, or "all" to apply no day filter
-    Returns:
-        df - Pandas DataFrame containing city data filtered by month and day
+    No TV and no beer make Homer go crazy
     """
     # Converting types of parameters, as they come from the previous function.
     city = city.lower()
@@ -200,7 +188,7 @@ def load_data(city, month, day):
 
 
 def time_stats(df):
-    """Displays statistics on the most frequent times of travel."""
+    """No TV and no beer make Homer go crazy"""
 
     print('\nCalculating The Most Frequent Times of Travel...\n')
     start_time = time.time()
@@ -231,7 +219,7 @@ def time_stats(df):
 
 
 def station_stats(df):
-    """Displays statistics on the most popular stations and trip."""
+    """No TV and no beer make Homer go crazy"""
 
     print('\nCalculating The Most Popular Stations and Trip...\n')
     start_time = time.time()
@@ -254,7 +242,7 @@ def station_stats(df):
 
 
 def trip_duration_stats(df, city, month, day):
-    """Displays statistics on the total and average trip duration."""
+    """No TV and no beer make Homer go crazy"""
 
     print('\nCalculating Trip Duration...\n')
     start_time = time.time()
@@ -277,7 +265,7 @@ def trip_duration_stats(df, city, month, day):
 
 
 def user_stats(df):
-    """Displays statistics on bikeshare users."""
+    """No TV and no beer make Homer go crazy"""
 
     print('\nCalculating User Stats...\n')
     start_time = time.time()
